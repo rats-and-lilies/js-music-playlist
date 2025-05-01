@@ -163,4 +163,34 @@ let songs = [
    
    ];
    
-   
+const playlistDivElement = document.getElementById("playlist");
+
+for (let song of songs) {
+    console.log(song)
+
+    const songDivElement = document.createElement("div");
+    const songTitleElement = document.createElement("h3");
+    const songArtstElement = document.createElement("p");
+    const songDurationElement = document.createElement("p");
+    const songFavoriteElement = document.createElement("p");
+    const songRadioElement = document.createElement("audio");
+    const songSourceElement = document.createElement("source");
+
+    songTitleElement.innerHTML = song.title;
+    songArtistElement.innerHTML = song.artist;
+    songDurationElement.innerHTML = song.duration;
+    songFavoriteElement.innerHTML = song.liked ? "⭐" : "";
+    songAudioElement.controls = true;
+    songSourceElement.src = song.audio;
+
+    songDivElement.appendChild(songFavoriteElement);
+    songDivElement.appendChild(songTitleElement);
+    songDivElement.appendChild(songArtistElement);
+    songDivElement.appendChild(songDurationElement);
+    songAudioElement.appendChild(songSourceElement);
+    songDivElement.appendChild(songAudioElement);
+
+    playlistDivElement.appendChild(songDivElement);
+
+}
+
